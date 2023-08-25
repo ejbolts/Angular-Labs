@@ -6,7 +6,7 @@ const users = [
     birthdate: "01/01/1990",
     age: 30,
     email: "user1@example.com",
-    password: "password123",
+    password: "password1",
     valid: true,
   },
   // ... add more users as needed
@@ -14,9 +14,11 @@ const users = [
 
 module.exports = function (app, path) {
   app.post("/api/auth", (req, res) => {
-    const { username, password } = req.body;
+    console.log("Received Request Body:", req.body);
+
+    const { email, password } = req.body;
     const user = users.find(
-      (u) => u.username === username && u.password === password
+      (u) => u.email === email && u.password === password
     );
 
     if (user) {

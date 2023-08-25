@@ -2,7 +2,8 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const port = 3000;
-
+let cors = require("cors");
+app.use(cors());
 // Middleware to parse the request body
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

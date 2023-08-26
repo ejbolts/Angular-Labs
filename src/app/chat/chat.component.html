@@ -1,0 +1,41 @@
+<style>
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  .chat-messages {
+    max-height: 400px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .chat-input {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  input {
+    flex-grow: 2;
+    margin-right: 10px;
+  }
+</style>
+<div class="container">
+  <div class="chat-messages">
+    <ul>
+      <li *ngFor="let msg of messages">{{ msg }}</li>
+    </ul>
+  </div>
+
+  <div class="chat-input">
+    <input
+      [(ngModel)]="message"
+      type="text"
+      placeholder="Type your message..."
+    />
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>
